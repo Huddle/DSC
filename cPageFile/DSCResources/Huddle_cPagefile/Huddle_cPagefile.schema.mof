@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cPagefile")]
+class Huddle_cPagefile : OMI_BaseResource
+{
+	[Key] char16 DriveLetter;
+	[write,ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] string Ensure;
+	[write] uint32 InitialSize;
+	[write] uint32 MaximumSize;
+};

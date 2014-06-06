@@ -1,0 +1,5 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cTrustedRootCertificate")]
+class Huddle_cTrustedRootCertificate : OMI_BaseResource
+{
+	[Key] string Path;
+};

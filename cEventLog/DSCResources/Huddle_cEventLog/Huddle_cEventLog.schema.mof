@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cEventLog")]
+class Huddle_cEventLog : OMI_BaseResource
+{
+	[Key] string Name;
+	[Key] string Source;
+};

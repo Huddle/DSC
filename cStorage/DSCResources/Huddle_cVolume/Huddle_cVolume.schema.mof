@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cVolume")]
+class Huddle_cVolume : OMI_BaseResource
+{
+	[Key] char16 DriveLetter;
+	[write] string FileSystemLabel;
+};

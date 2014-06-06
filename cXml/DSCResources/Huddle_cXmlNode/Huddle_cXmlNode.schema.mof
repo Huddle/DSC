@@ -1,0 +1,7 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cXmlNode")]
+class Huddle_cXmlNode : OMI_BaseResource
+{
+	[Key] string XmlFilePath;
+	[Key] string ParentNodeXPath;
+	[Key] string NodeName;
+};

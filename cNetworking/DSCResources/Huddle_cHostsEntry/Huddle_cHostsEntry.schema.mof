@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cHostsEntry")]
+class Huddle_cHostsEntry : OMI_BaseResource
+{
+	[Key] string Name;
+	[write] string Address;
+};

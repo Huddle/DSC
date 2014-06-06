@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cXmlAttribute")]
+class Huddle_cXmlAttribute : OMI_BaseResource
+{
+	[Key] string XmlFilePath;
+	[Key] string NodeXPath;
+	[Key] string AttributeName;
+	[write] string Value;
+};

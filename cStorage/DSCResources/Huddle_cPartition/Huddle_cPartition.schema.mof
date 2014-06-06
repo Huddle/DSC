@@ -1,0 +1,7 @@
+[ClassVersion("1.0.0.0"), FriendlyName("cPartition")]
+class Huddle_cPartition : OMI_BaseResource
+{
+	[Key] uint32 DiskNumber;
+	[Key] uint32 PartitionNumber;
+	[write] char16 DriveLetter;
+};
