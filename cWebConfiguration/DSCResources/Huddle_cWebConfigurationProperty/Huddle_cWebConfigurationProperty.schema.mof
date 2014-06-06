@@ -1,0 +1,8 @@
+﻿[ClassVersion("1.0.0.0"), FriendlyName("cWebConfigurationProperty")]
+class Huddle_cWebConfigurationProperty : OMI_BaseResource
+{
+	[Key] string Filter;
+	[Key] string Name;
+	[Write] string Value;
+	[Write, ValueMap{"bool","int","string"}, Values{"bool","int","string"}] string Type;
+};
