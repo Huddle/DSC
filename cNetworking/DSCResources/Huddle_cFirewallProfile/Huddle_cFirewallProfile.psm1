@@ -9,7 +9,7 @@ function Get-TargetResource
 
 	return @{
 		Name = $Name;
-		Enabled = (Get-NetFirewallProfile -Name $Name).Enabled
+		Enabled = Convert-GpoBooleanToBool((Get-NetFirewallProfile -Name $Name).Enabled)
 	}
 }
 
@@ -23,10 +23,10 @@ function Set-TargetResource
 
 		[Parameter(Mandatory)]
 		[ValidateNotNull()]
-		[Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean] $Enabled
+		[bool] $Enabled
 	)
 
-	Set-NetFirewallProfile -Name $Name -Enabled $Enabled
+	Set-NetFirewallProfile -Name $Name -Enabled (Convert-BoolToGpoBoolean $Enabled)
 }
 
 function Test-TargetResource
@@ -39,10 +39,38 @@ function Test-TargetResource
 
 		[Parameter(Mandatory)]
 		[ValidateNotNull()]
-		[Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean] $Enabled
+		[bool] $Enabled
 	)
 
-	return (Get-NetFirewallProfile -Name $Name).Enabled -EQ $Enabled
+	return (Get-NetFirewallProfile -Name $Name).Enabled -EQ (Convert-BoolToGpoBoolean $Enabled)
+}
+
+function Convert-BoolToGpoBoolean
+{
+	param
+	(
+		[Parameter(Mandatory)]
+		[ValidateNotNull()]
+		[bool] $Bool
+	)
+
+	if ($Bool) {
+		return [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean]::True
+	} else {
+		return [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean]::False
+	}
+}
+
+function Convert-GpoBooleanToBool
+{
+	param
+	(
+		[Parameter(Mandatory)]
+		[ValidateNotNull()]
+		[Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean] $GpoBoolean
+	)
+
+	return $GpoBoolean -EQ [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean]::True
 }
 
 Export-ModuleMember -Function *-TargetResource

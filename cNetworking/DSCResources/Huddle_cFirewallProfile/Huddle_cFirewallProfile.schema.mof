@@ -2,5 +2,5 @@
 class Huddle_cFirewallProfile : OMI_BaseResource
 {
 	[Key, ValueMap{"Domain","Public","Private"}, Values{"Domain","Public","Private"}] String Name;
-	[write] Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.GpoBoolean Enabled;
+	[write] boolean Enabled;
 };
