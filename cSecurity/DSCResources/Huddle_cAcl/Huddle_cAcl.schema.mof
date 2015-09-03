@@ -2,6 +2,6 @@
 class Huddle_cAcl : OMI_BaseResource
 {
 	[Key] string Path;
-	[Key] System.Security.Principal.IdentityReference Principal;
-	[write] System.Security.AccessControl.FileSystemAccessRule FileSystemRights;
+	[Key] string Principal;
+	[write] string FileSystemRights;
 };
